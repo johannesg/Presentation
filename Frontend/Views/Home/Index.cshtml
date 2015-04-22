@@ -1,0 +1,21 @@
+﻿<div class="jumbotron">
+</div>
+<div class="container-fluid">
+  @{
+    var baseApiUrl = Url.Content("~/");
+    var hotReload = true;
+    var hotReloadBaseUrl = "http://localhost:10009/";
+  }
+
+  <div id="appContainer" data-baseurl="@baseApiUrl"></div>
+
+  @if (hotReload)
+  {
+    <script src="@(hotReloadBaseUrl)webpack-dev-server.js"></script>
+    <script src="@(hotReloadBaseUrl)bundle.js"></script>
+  }
+  else
+  {
+    <script src="~/app/bundle.js"></script>
+  }
+</div>

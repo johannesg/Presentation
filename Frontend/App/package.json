@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "start": "webpack --progress --colors -d --watch",
+    "build": "webpack --progress --colors -p",
+    "hot-reload": "webpack-dev-server --progress --colors --port 10009 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "babel-core": "^5.0.9",
+    "babel-loader": "^5.0.0",
+    "babel-runtime": "^5.0.9",
+    "classnames": "^1.2.0",
+    "css-loader": "^0.10.1",
+    "file-loader": "^0.8.1",
+    "flux": "^2.0.1",
+    "less": "^2.5.0",
+    "less-loader": "^2.2.0",
+    "lodash": "^3.6.0",
+    "react": "^0.13.1",
+    "react-bootstrap": "^0.20.3",
+    "react-intl": "^1.2.0",
+    "react-router": "^0.13.2",
+    "style-loader": "^0.10.2",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.8.0"
+  }
+}

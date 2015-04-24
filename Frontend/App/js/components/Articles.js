@@ -65,7 +65,6 @@ var Articles = React.createClass({
         <ShoppingCartWidget>
 
         </ShoppingCartWidget>
-
       </Col>
     </Row>
   }

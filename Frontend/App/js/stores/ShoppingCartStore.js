@@ -13,18 +13,15 @@ function addToCart(payload) {
   let item = _.find(items, { id: payload.item.Id });
   if (item) {
     item.count++;
-    item.total = item.Price * item.Count;
   }
   else
     items.push({ 
       id: payload.item.Id,
       price: payload.item.Price,
       count: 1,
-      total: payload.item.Price 
     });
 
   console.debug(`Item ${payload.id} added to cart`);
-  console.debug(items);
   store.emitChange();
 }
 

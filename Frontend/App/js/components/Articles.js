@@ -1,5 +1,8 @@
 import React from 'react'
 import $ from 'jquery'
+import { Row, Col } from './Common'
+import ShoppingCartActions from '../actions/ShoppingCartActions'
+import ShoppingCartWidget from './ShoppingCartWidget'
 
 var ArticleList = React.createClass({
   //mixin: [PureRenderMixin],
@@ -20,9 +23,10 @@ var ArticleList = React.createClass({
   componentWillReceiveProps(newProps) {
   },
 
-  addToCart(id) 
+  addToCart(item, event) 
   {
-    console.debug(`Item ${id} added to cart`);
+    event.preventDefault();
+    ShoppingCartActions.addToCart(item);
   },
 
   render() {
@@ -31,16 +35,16 @@ var ArticleList = React.createClass({
       <td className='article-image'>
         <img src={i.ImageUrl}></img>
       </td>
-      <td className='pull-left'>
+      <td className='vert-align'>
         {i.Description}
       </td>
+      <td className='vert-align'>
+        {i.Price} kr
+      </td>
       <td>
-        <a onClick={this.addToCart.bind(this, i.Id)} className='fa fa-shopping-cart'>
+        <a href='#' onClick={this.addToCart.bind(this, i)} className='fa fa-shopping-cart fa-3x'>
          
        </a> 
-      </td>
-      <td className='pull-right'>
-        {i.Price} kr
       </td>
     </tr>);
       return <table className='table table-striped'>
@@ -53,14 +57,17 @@ var Articles = React.createClass({
   //mixin: [PureRenderMixin],
 
   render() {
-    return <div className='row'>
-      <div className='col-md-8'>
+    return <Row>
+      <Col span='8'>
         <ArticleList>
-          
+
         </ArticleList>
-        
-      </div>
-    </div>
+        <ShoppingCartWidget>
+
+        </ShoppingCartWidget>
+
+      </Col>
+    </Row>
   }
 });
 

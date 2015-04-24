@@ -14,9 +14,9 @@ var ArticleList = React.createClass({
   componentWillMount() {
 
     $.get('/api/articles')
-    .then(result => {
-      this.setState({ articles: result });
-    });
+        .then(result => {
+          this.setState({ articles: result });
+        });
 
   },
 

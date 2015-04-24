@@ -22,24 +22,29 @@ var ShoppingCartWidget = React.createClass({
   },
 
   render() {
-    let summary = _.reduce(this.state.items, (summary, c) => {
-          summary.count += c.count;
-          summary.amount += c.count * c.price;
-        },
-        { count: 0, amount: 0});
+    let summary = _.reduce(
+      this.state.items, 
+      (s, i) => ({ 
+        count: s.count + i.count,
+        amount: s.amount + i.count * i.price
+      }),
+      { count: 0, amount: 0});
 
     let checkoutBtn = null;
-    if (itemCount > 0)
+    if (summary.count > 0) {
       checkoutBtn = <div>
         <Link to='checkout' className='btn btn-primary'>
           Kassa
         </Link>
       </div>
+    }
 
     return <div>
-      <div>Antal artiklar: {itemCount}</div>
+      <div>Antal artiklar: {summary.count}</div>
+      <div>Belopp: {summary.amount}</div>
       {checkoutBtn}
     </div> 
+  }
 });
 
 export default ShoppingCartWidget

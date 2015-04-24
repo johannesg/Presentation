@@ -1,5 +1,4 @@
 import React from 'react'
-import { Row, Col } from './Common'
 import { Button, Modal, ModalTrigger } from 'react-bootstrap'
 import { EditAddressButton } from './Address'
 import Store from '../stores/ShippingStore'
@@ -51,18 +50,13 @@ var DeliveryAddress = React.createClass({
         {this.state.zipcode} {this.state.city}
       </div>
       <div>
-
-        <EditAddressButton onSetAddress={this.onSetAddress}>
-          
-        </EditAddressButton>
-      <Button onClick={this.useBillingAddress}>
-        Använd faktureringsadress
-      </Button>
-        
+        <EditAddressButton address={this.state} onSetAddress={this.onSetAddress} />
+        { ' ' }
+        <Button onClick={this.useBillingAddress}>
+          Använd faktureringsadress
+        </Button>
       </div>
     </div>
-
-
   }
 });
 

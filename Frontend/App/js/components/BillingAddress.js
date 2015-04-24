@@ -48,7 +48,7 @@ var BillingAddress = React.createClass({
       </div>
       <div>
 
-        <EditAddressButton onSetAddress={this.onSetAddress}>
+        <EditAddressButton address={this.state} onSetAddress={this.onSetAddress}>
           
         </EditAddressButton>
         

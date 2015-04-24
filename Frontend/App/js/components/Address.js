@@ -5,12 +5,7 @@ import { Row, Col } from './Common'
 export var EditAddress = React.createClass({
   //mixin: [PureRenderMixin],
   getInitialState() {
-    return {
-      name: '',
-      address: '',
-      zipcode: '',
-      city: ''
-    };
+    return this.props.address;
   },
 
   componentWillMount() {
@@ -74,7 +69,7 @@ export var EditAddress = React.createClass({
 
 export var EditAddressButton = React.createClass({
   render() {
-    return <ModalTrigger modal={<EditAddress onSetAddress={this.props.onSetAddress} />}>
+    return <ModalTrigger modal={<EditAddress {...this.props} onSetAddress={this.props.onSetAddress} />}>
       <Button bsStyle='primary' bsSize='small'>Ändra</Button>
     </ModalTrigger>
   }

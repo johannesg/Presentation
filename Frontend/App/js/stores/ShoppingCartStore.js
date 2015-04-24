@@ -17,11 +17,11 @@ function addToCart(payload) {
   else
     items.push({ 
       id: payload.item.Id,
-      price: payload.item.Price,
+      article: payload.item,
       count: 1,
     });
 
-  console.debug(`Item ${payload.id} added to cart`);
+  console.debug(`Item ${payload.item.Id} added to cart`);
   store.emitChange();
 }
 

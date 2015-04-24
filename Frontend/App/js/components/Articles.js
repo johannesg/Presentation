@@ -14,9 +14,9 @@ var ArticleList = React.createClass({
   componentWillMount() {
 
     $.get('/api/articles')
-        .then(result => {
-          this.setState({ articles: result });
-        });
+    .then(result => {
+      this.setState({ articles: result });
+    });
 
   },
 
@@ -43,13 +43,13 @@ var ArticleList = React.createClass({
       </td>
       <td>
         <a href='#' onClick={this.addToCart.bind(this, i)} className='fa fa-shopping-cart fa-3x'>
-         
-       </a> 
+
+        </a> 
       </td>
     </tr>);
-      return <table className='table table-striped'>
-        {items}
-        </table>
+    return <table className='table table-striped'>
+      {items}
+    </table>
   }
 });
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Modal, ModalTrigger } from 'react-bootstrap'
-import { Row, Col } from './Common'
+import { Row, Col, Button, Modal, ModalTrigger } from 'react-bootstrap'
 
 export var EditAddress = React.createClass({
   //mixin: [PureRenderMixin],
@@ -43,13 +42,13 @@ export var EditAddress = React.createClass({
               onChange={this.onChange.bind(this, 'address')}
               value={this.state.address} />
           <Row>
-            <Col span='3'>
+            <Col md={3}>
               <label htmlFor="address.zipcode">Postnr</label>
               <input type="text" className="form-control" id="address.zipcode" placeholder="Postnr"
                 onChange={this.onChange.bind(this, 'zipcode')}
                 value={this.state.zipcode} />
           </Col>
-          <Col span='9'>
+          <Col md={9}>
             <label htmlFor="address.city">City</label>
             <input type="text" className="form-control" id="address.city" placeholder="City"
               onChange={this.onChange.bind(this, 'city')}

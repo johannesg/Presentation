@@ -1,7 +1,6 @@
 import React from 'react'
 import $ from 'jquery'
 import _ from 'lodash'
-import { Row, Col } from './Common'
 import Actions from '../actions/ShoppingCartActions'
 import Store from '../stores/ShoppingCartStore'
 

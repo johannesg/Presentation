@@ -1,5 +1,4 @@
 import React from 'react'
-import { Row, Col } from './Common'
 import { Button, Modal, ModalTrigger } from 'react-bootstrap'
 import { EditAddressButton } from './Address'
 import Store from '../stores/BillingStore'

@@ -52,7 +52,7 @@ var DeliveryAddress = React.createClass({
       <div>
         <EditAddressButton address={this.state} onSetAddress={this.onSetAddress} />
         { ' ' }
-        <Button onClick={this.useBillingAddress}>
+        <Button bsSize='small' onClick={this.useBillingAddress}>
           Använd faktureringsadress
         </Button>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import $ from 'jquery'
-import { Row, Col } from './Common'
+import { Row, Col } from 'react-bootstrap'
 import ShoppingCartActions from '../actions/ShoppingCartActions'
 import ShoppingCartWidget from './ShoppingCartWidget'
 
@@ -58,7 +58,7 @@ var Articles = React.createClass({
 
   render() {
     return <Row>
-      <Col span='8'>
+      <Col md={8}>
         <ArticleList>
 
         </ArticleList>

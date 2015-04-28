@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NServiceBus.5.2.0\lib\net45\NServiceBus.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NServiceBus.Host, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NServiceBus.Host.6.0.0\lib\net45\NServiceBus.Host.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +47,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EndpointConfig.cs" />
+    <Compile Include="Handlers\CheckInventoryHandler.cs" />
+    <Compile Include="Handlers\CollectItemsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Billing.Events\Billing.Events.csproj">
+      <Project>{21d14225-da71-48d7-928e-a608fd608b9f}</Project>
+      <Name>Billing.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7978E030-194D-4030-A6B4-74C2F9A77941}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory.Commands\Inventory.Commands.csproj">
+      <Project>{BF5B1EE5-3639-4705-9C6B-9C1BD4B6F73E}</Project>
+      <Name>Inventory.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory.Events\Inventory.Events.csproj">
+      <Project>{606E8D4C-0AA5-4143-8FFA-1EA06A91ACD1}</Project>
+      <Name>Inventory.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ordering.Events\Ordering.Events.csproj">
+      <Project>{3cd8449c-73fc-4de3-b52e-795ab252a7f7}</Project>
+      <Name>Ordering.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shipping.Events\Shipping.Events.csproj">
+      <Project>{fc62bfa3-5649-4ec2-9281-cb0b4855c840}</Project>
+      <Name>Shipping.Events</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -50,4 +90,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProjectDir)$(OutputPath)NServiceBus.Host.exe</StartProgram>
+  </PropertyGroup>
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A1F7341-CFC5-47D4-B31B-5314D839C252}</ProjectGuid>
+    <ProjectGuid>{385544A1-DD4C-4E87-B58F-04514DBA7D2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Billing</RootNamespace>
-    <AssemblyName>Billing</AssemblyName>
+    <RootNamespace>Ordering</RootNamespace>
+    <AssemblyName>Ordering</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,24 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\CheckCreditRatingHandler.cs" />
-    <Compile Include="Handlers\OrderShippedHandler.cs" />
-    <Compile Include="Handlers\SetBillingAddressHandler.cs" />
-    <Compile Include="Model\DataStore.cs" />
+    <Compile Include="Handlers\OrderSagaData.cs" />
     <Compile Include="EndpointConfig.cs" />
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\OrderInfo.cs" />
+    <Compile Include="Handlers\OrderSaga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Billing.Commands\Billing.Commands.csproj">
-      <Project>{0013C13E-9D99-4D9B-9C33-A801FDC74078}</Project>
-      <Name>Billing.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Billing.Events\Billing.Events.csproj">
       <Project>{21D14225-DA71-48D7-928E-A608FD608B9F}</Project>
       <Name>Billing.Events</Name>
@@ -73,13 +67,21 @@
       <Project>{7978E030-194D-4030-A6B4-74C2F9A77941}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Inventory.Commands\Inventory.Commands.csproj">
+      <Project>{BF5B1EE5-3639-4705-9C6B-9C1BD4B6F73E}</Project>
+      <Name>Inventory.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Inventory.Events\Inventory.Events.csproj">
-      <Project>{606e8d4c-0aa5-4143-8ffa-1ea06a91acd1}</Project>
+      <Project>{606E8D4C-0AA5-4143-8FFA-1EA06A91ACD1}</Project>
       <Name>Inventory.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ordering.Events\Ordering.Events.csproj">
-      <Project>{3cd8449c-73fc-4de3-b52e-795ab252a7f7}</Project>
+      <Project>{3CD8449C-73FC-4DE3-B52E-795AB252A7F7}</Project>
       <Name>Ordering.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shipping.Commands\Shipping.Commands.csproj">
+      <Project>{89AC0FF9-C69C-44D3-86DA-D79C9BB9EC8E}</Project>
+      <Name>Shipping.Commands</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shipping.Events\Shipping.Events.csproj">
       <Project>{FC62BFA3-5649-4EC2-9281-CB0B4855C840}</Project>

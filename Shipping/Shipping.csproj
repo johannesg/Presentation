@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndpointConfig.cs" />
-    <Compile Include="Handlers\ShipOrderHandler.cs" />
+    <Compile Include="Handlers\SetDeliveryAddressHandler.cs" />
+    <Compile Include="Handlers\ItemsPackagedHandler.cs" />
+    <Compile Include="Model\DataStore.cs" />
+    <Compile Include="Model\DeliveryAddress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,13 +59,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Billing.Events\Billing.Events.csproj">
+      <Project>{21d14225-da71-48d7-928e-a608fd608b9f}</Project>
+      <Name>Billing.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{7978E030-194D-4030-A6B4-74C2F9A77941}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Inventory.Events\Inventory.Events.csproj">
+      <Project>{606E8D4C-0AA5-4143-8FFA-1EA06A91ACD1}</Project>
+      <Name>Inventory.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ordering.Events\Ordering.Events.csproj">
+      <Project>{3cd8449c-73fc-4de3-b52e-795ab252a7f7}</Project>
+      <Name>Ordering.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shipping.Commands\Shipping.Commands.csproj">
       <Project>{89AC0FF9-C69C-44D3-86DA-D79C9BB9EC8E}</Project>
       <Name>Shipping.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shipping.Events\Shipping.Events.csproj">
+      <Project>{FC62BFA3-5649-4EC2-9281-CB0B4855C840}</Project>
+      <Name>Shipping.Events</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

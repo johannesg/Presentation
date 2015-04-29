@@ -4,32 +4,35 @@ import _ from 'lodash'
 import { getAjax, postAjax } from './Ajax'
 import UserStore from './UserStore'
 
-let billingAddress = {};
+let items = [];
 
 let store = StoreFactory.Create({
-  getBillingAddress() {
-    return billingAddress;
-  }
 });
 
-function updateBillingAddress(payload) {
-  billingAddress = payload.address;
-  store.emitChange();
-}
-
 function confirmOrder(payload) {
-  postAjax('/api/billing/confirmorder', {
+  postAjax('/api/inventory/confirmorder', {
     customerId: UserStore.getUser().customerId,
     orderId: payload.orderId,
-    billingAddress : billingAddress
+    items
   });
 }
 
+function addToCart(payload) {
+  let item = _.find(items, { articleId: payload.item.id });
+  if (item)
+    item.count++;
+  else
+    items.push({ articleId: payload.item.id, count: 1 });
+
+  store.emitChange();
+}
+
 store.handlers = {
-  'billing.updateBillingAddress': updateBillingAddress,
-  'checkout.confirmOrder': confirmOrder
+  'checkout.confirmOrder': confirmOrder,
+  'shoppingcart.add': addToCart
 };
 
 AppDispatcher.registerStore(store);
 
 export default store
+

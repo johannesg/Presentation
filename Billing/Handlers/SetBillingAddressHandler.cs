@@ -13,7 +13,7 @@ namespace Billing.Handlers
 
     public void Handle(SetBillingAddress message)
     {
-      Logger.InfoFormat("Setting billing address on customer {0} for order {1}", message.CustomerId, message.OrderId);
+      Logger.InfoFormat("Order {0}: Setting billing address on customer {1}", message.OrderId, message.CustomerId);
 
       var newCustomer = new Customer
       {

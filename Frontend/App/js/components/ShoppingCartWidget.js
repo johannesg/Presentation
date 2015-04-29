@@ -26,7 +26,7 @@ var ShoppingCartWidget = React.createClass({
       this.state.items, 
       (s, i) => ({ 
         count: s.count + i.count,
-        amount: s.amount + i.count * i.article.Price
+        amount: s.amount + i.count * i.article.price
       }),
       { count: 0, amount: 0});
 

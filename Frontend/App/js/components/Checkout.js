@@ -6,12 +6,20 @@ import ShoppingCartWidget from './ShoppingCartWidget'
 import BillingAddress from './BillingAddress'
 import DeliveryAddress from './DeliveryAddress'
 import ShoppingCartList from './ShoppingCartList'
+import uuid from 'node-uuid'  
+import Actions from '../actions/CheckoutActions'
+
+require('../stores/OrderingStore');
+require('../stores/InventoryStore');
 
 var Checkout = React.createClass({
   //mixin: [PureRenderMixin],
 
   onConfirmOrder() {
-    
+    let orderId = uuid.v4();
+
+    console.log(`Order id: ${orderId}`);
+    Actions.confirmOrder(orderId);
   },
 
   render() {
@@ -31,7 +39,7 @@ var Checkout = React.createClass({
       </Row>
       <Row>
         <Col md={8}>
-          <Button bsStyle='primary' className='pull-right'>
+          <Button bsStyle='primary' className='pull-right' onClick={this.onConfirmOrder}>
             Bekräfta order
           </Button>
         </Col>

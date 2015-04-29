@@ -10,18 +10,18 @@ let store = StoreFactory.Create({
 });
 
 function addToCart(payload) {
-  let item = _.find(items, { id: payload.item.Id });
+  let item = _.find(items, { id: payload.item.id });
   if (item) {
     item.count++;
   }
   else
     items.push({ 
-      id: payload.item.Id,
+      id: payload.item.id,
       article: payload.item,
       count: 1,
     });
 
-  console.debug(`Item ${payload.item.Id} added to cart`);
+  console.debug(`Item ${payload.item.id} added to cart`);
   store.emitChange();
 }
 

@@ -21,18 +21,17 @@ namespace Shipping.Handlers
 
       ShipOrder(message.OrderId);
 
-      Bus.Publish(new OrderShipped());
+      Bus.Publish(new OrderShipped(message.OrderId));
     }
 
     private void PrintDeliveryAddressAndPutItOnPackage(Guid orderId, DeliveryAddress deliveryAddress)
     {
-      Logger.InfoFormat("Adding delivery address on the package");
+      Logger.InfoFormat("Order {0}: Adding delivery address on the package", orderId);
     }
 
     private void ShipOrder(Guid orderId)
     {
-      Logger.InfoFormat("Shipping order {0}", orderId);
+      Logger.InfoFormat("Order {0}: Shipping order", orderId);
     }
   }
-
 }

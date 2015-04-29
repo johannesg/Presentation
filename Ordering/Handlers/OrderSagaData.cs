@@ -14,5 +14,6 @@ namespace Ordering.Handlers
     public bool CustomerIsValid { get; set; }
     public bool AllItemsAreInStock { get; set; }
     public bool RecipientHasValidAddress { get; set; }
+    public bool OrderConfirmed { get; set; }
   }
 }

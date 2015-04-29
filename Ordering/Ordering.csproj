@@ -75,6 +75,10 @@
       <Project>{606E8D4C-0AA5-4143-8FFA-1EA06A91ACD1}</Project>
       <Name>Inventory.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ordering.Commands\Ordering.Commands.csproj">
+      <Project>{648500CC-3454-498A-9641-7DEBE7A9A846}</Project>
+      <Name>Ordering.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ordering.Events\Ordering.Events.csproj">
       <Project>{3CD8449C-73FC-4DE3-B52E-795AB252A7F7}</Project>
       <Name>Ordering.Events</Name>

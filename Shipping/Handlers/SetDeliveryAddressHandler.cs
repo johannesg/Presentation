@@ -15,7 +15,7 @@ namespace Shipping.Handlers
 
     public void Handle(SetDeliveryAddress message)
     {
-      Logger.InfoFormat("Updating and validating delivery address for order {0}", message.OrderId);
+      Logger.InfoFormat("Order {0}: Updating and validating delivery address for", message.OrderId);
 
       var deliveryAddress = new DeliveryAddress
       {

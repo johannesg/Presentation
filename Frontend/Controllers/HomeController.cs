@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Shipping.Commands;
+﻿using System.Web.Mvc;
 
 namespace Frontend.Controllers
 {
@@ -13,7 +8,6 @@ namespace Frontend.Controllers
     {
       ViewBag.Title = "Home Page";
 
-      Global.Bus.Send(new ShipOrder());
       return View();
     }
   }

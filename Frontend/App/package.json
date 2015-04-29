@@ -15,6 +15,7 @@
     "less": "^2.5.0",
     "less-loader": "^2.2.0",
     "lodash": "^3.6.0",
+    "node-uuid": "^1.4.3",
     "react": "^0.13.1",
     "react-bootstrap": "^0.20.3",
     "react-intl": "^1.2.0",

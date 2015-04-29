@@ -1,10 +1,10 @@
 
 using Common;
+using NServiceBus;
+using NServiceBus.Features;
 
-namespace Shipping
+namespace Inventory
 {
-  using NServiceBus;
-
   /*
   This class configures this endpoint as a Server. More information about how to configure the NServiceBus host
   can be found here: http://particular.net/articles/the-nservicebus-host
@@ -23,6 +23,9 @@ namespace Shipping
       //Also note that you can mix and match storages to fit you specific needs. 
       //http://docs.particular.net/nservicebus/persistence-order
       configuration.UsePersistence<InMemoryPersistence>();
+      configuration.DisableFeature<SecondLevelRetries>();
+
+      ConfigureLogging.NLog();
 
       configuration.DefineMessageConventions();
     }

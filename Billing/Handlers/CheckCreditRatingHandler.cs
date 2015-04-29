@@ -13,7 +13,7 @@ namespace Billing.Handlers
 
     public void Handle(CheckCreditRating message)
     {
-      Logger.InfoFormat("Checking credit rating on customer {0} for order {1}", message.CustomerId, message.OrderId);
+      Logger.InfoFormat("Order {0}: Checking credit rating on customer {1}", message.OrderId, message.CustomerId);
 
       Bus.Publish(new CustomerIsValid(message.CustomerId, message.OrderId));
     }

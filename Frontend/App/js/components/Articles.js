@@ -12,12 +12,10 @@ var ArticleList = React.createClass({
   },
 
   componentWillMount() {
-
     $.get('/api/articles')
     .then(result => {
       this.setState({ articles: result });
     });
-
   },
 
   componentWillReceiveProps(newProps) {
@@ -31,20 +29,18 @@ var ArticleList = React.createClass({
 
   render() {
 
-    let items = this.state.articles.map(i => <tr key={i.Id} >
+    let items = this.state.articles.map(i => <tr key={i.id} >
       <td className='article-image'>
-        <img src={i.ImageUrl}></img>
+        <img src={i.imageUrl}></img>
       </td>
       <td className='vert-align'>
-        {i.Description}
+        {i.description}
       </td>
       <td className='vert-align'>
-        {i.Price} kr
+        {i.price} kr
       </td>
       <td>
-        <a href='#' onClick={this.addToCart.bind(this, i)} className='fa fa-shopping-cart fa-3x'>
-
-        </a> 
+        <a href='#' onClick={this.addToCart.bind(this, i)} className='fa fa-shopping-cart fa-3x' /> 
       </td>
     </tr>);
     return <table className='table table-striped'>
@@ -59,12 +55,8 @@ var Articles = React.createClass({
   render() {
     return <Row>
       <Col md={8}>
-        <ArticleList>
-
-        </ArticleList>
-        <ShoppingCartWidget>
-
-        </ShoppingCartWidget>
+        <ArticleList/>
+        <ShoppingCartWidget/>
       </Col>
     </Row>
   }

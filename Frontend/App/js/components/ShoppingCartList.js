@@ -31,23 +31,23 @@ var ShoppingCartList = React.createClass({
 
     let items = this.state.items.map(i => <tr key={i.id} >
       <td className='article-image'>
-        <img src={i.article.ImageUrl}></img>
+        <img src={i.article.imageUrl}></img>
       </td>
       <td className='vert-align'>
-        {i.article.Description}
+        {i.article.description}
       </td>
       <td className='vert-align'>
-        {i.article.Price} kr
+        {i.article.price} kr
       </td>
       <td className='vert-align'>
         {i.count} st
       </td>
       <td className='vert-align'>
-        {i.article.Price * i.count} kr
+        {i.article.price * i.count} kr
       </td>
     </tr>);
 
-    let total = _.reduce(this.state.items, (total, i) => total + i.article.Price * i.count, 0);
+    let total = _.reduce(this.state.items, (total, i) => total + i.article.price * i.count, 0);
 
     return <table className='table table-striped'>
       <thead>

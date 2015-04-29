@@ -14,7 +14,7 @@ namespace Billing.Handlers
 
     public void Handle(OrderShipped message)
     {
-      Logger.InfoFormat("Order {0} has been shipped. Send invoice to the specified billing address");
+      Logger.InfoFormat("Order {0}: Order has been shipped. Send invoice to the specified billing address", message.OrderId);
 
       var billingAddress = DataStore.Orders[message.OrderId];
 

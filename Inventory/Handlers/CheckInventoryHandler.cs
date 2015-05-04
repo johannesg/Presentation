@@ -17,6 +17,7 @@ namespace Inventory.Handlers
       Logger.InfoFormat("Order {0}: Checking that all items are in stock", message.OrderId);
 
       Bus.Publish(new AllItemsAreInStock(message.OrderId));
+      Bus.DoNotContinueDispatchingCurrentMessageToHandlers();
     }
   }
 }

@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="EndpointConfig.cs" />
     <Compile Include="Handlers\CheckInventoryHandler.cs" />
-    <Compile Include="Handlers\CollectItemsHandler.cs" />
+    <Compile Include="Handlers\OrderConfirmedHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

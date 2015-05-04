@@ -2,9 +2,9 @@
 
 namespace Ordering.Events
 {
-    public class OrderIsValid
+    public class OrderConfirmed
     {
-      public OrderIsValid(Guid orderId)
+      public OrderConfirmed(Guid orderId)
       {
         OrderId = orderId;
       }

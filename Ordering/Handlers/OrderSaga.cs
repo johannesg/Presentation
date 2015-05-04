@@ -85,7 +85,7 @@ namespace Ordering.Handlers
 
       Logger.InfoFormat("Order {0}: Order is valid. Continuing processing", Data.OrderId);
 
-      Bus.Publish(new OrderIsValid(Data.OrderId));
+      Bus.Publish(new OrderConfirmed(Data.OrderId));
     }
 
     public void Handle(ItemsPackaged message)

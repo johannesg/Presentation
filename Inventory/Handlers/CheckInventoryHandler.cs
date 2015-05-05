@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Threading;
 using Inventory.Commands;
 using Inventory.Events;
 using NServiceBus;
@@ -15,6 +16,8 @@ namespace Inventory.Handlers
     {
       // Check that all items are in stock
       Logger.InfoFormat("Order {0}: Checking that all items are in stock", message.OrderId);
+
+      Thread.Sleep(1000);
 
       Bus.Publish(new AllItemsAreInStock(message.OrderId));
     }

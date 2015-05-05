@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Threading;
 using Billing.Commands;
 using Billing.Model;
 using NServiceBus;
@@ -36,6 +37,8 @@ namespace Billing.Handlers
 
       DataStore.Customers.AddOrUpdate(message.CustomerId, newCustomer, (guid, customer) => newCustomer);
       DataStore.Orders.AddOrUpdate(message.OrderId, newOrder, (guid, order) => newOrder);
+
+      Thread.Sleep(1000);
 
       Bus.SendLocal(new CheckCreditRating(message.CustomerId, message.OrderId));
     }

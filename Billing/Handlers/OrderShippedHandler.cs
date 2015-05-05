@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Threading;
 using Billing.Events;
 using Billing.Model;
 using NServiceBus;
@@ -25,6 +26,7 @@ namespace Billing.Handlers
 
     private void SendInvoice(OrderInfo billingAddress)
     {
+      Thread.Sleep(1000);
     }
   }
 }

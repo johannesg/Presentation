@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using System.Threading;
 using NServiceBus;
 using NServiceBus.Logging;
 using Shipping.Commands;
@@ -27,6 +28,8 @@ namespace Shipping.Handlers
       };
 
       DataStore.DeliveryAddresses.AddOrUpdate(message.OrderId, deliveryAddress, (guid, address) => deliveryAddress);
+
+      Thread.Sleep(1000);
 
       if (deliveryAddress.IsValid())
         Bus.Publish(new RecipientHasValidAddress(message.OrderId));

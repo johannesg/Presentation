@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Threading;
 using Billing.Commands;
 using Billing.Events;
 using NServiceBus;
@@ -14,6 +15,8 @@ namespace Billing.Handlers
     public void Handle(CheckCreditRating message)
     {
       Logger.InfoFormat("Order {0}: Checking credit rating on customer {1}", message.OrderId, message.CustomerId);
+
+      Thread.Sleep(3000);
 
       Bus.Publish(new CustomerIsValid(message.CustomerId, message.OrderId));
     }

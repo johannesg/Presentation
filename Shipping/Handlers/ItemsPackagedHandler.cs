@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading;
 using Inventory.Events;
 using NServiceBus;
 using NServiceBus.Logging;
@@ -27,11 +28,15 @@ namespace Shipping.Handlers
     private void PrintDeliveryAddressAndPutItOnPackage(Guid orderId, DeliveryAddress deliveryAddress)
     {
       Logger.InfoFormat("Order {0}: Adding delivery address on the package", orderId);
+
+      Thread.Sleep(1000);
     }
 
     private void ShipOrder(Guid orderId)
     {
       Logger.InfoFormat("Order {0}: Shipping order", orderId);
+
+      Thread.Sleep(1000);
     }
   }
 }

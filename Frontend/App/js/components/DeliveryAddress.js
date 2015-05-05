@@ -18,9 +18,6 @@ var DeliveryAddress = React.createClass({
     this.unsubscribe();
   },
 
-  componentWillReceiveProps(newProps) {
-  },
-
   onChange() {
     this.setState(Store.getDeliveryAddress());
   },

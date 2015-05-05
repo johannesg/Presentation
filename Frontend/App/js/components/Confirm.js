@@ -1,21 +1,12 @@
 import React from 'react'
 
 var ConfirmOrder = React.createClass({
-  //mixin: [PureRenderMixin],
-  getInitialState() {
-  },
-
-  componentWillMount() {
-  },
-
-  componentWillUnmount() {
-  },
-
-  componentWillReceiveProps(newProps) {
-  },
-
   render() {
-    return <div></div>
+    return <div>
+      <h1>
+        Order confirmed!
+      </h1>
+    </div>
   }
 });
 

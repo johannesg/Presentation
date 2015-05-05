@@ -18,9 +18,6 @@ var BillingAddress = React.createClass({
     this.unsubscribe();
   },
 
-  componentWillReceiveProps(newProps) {
-  },
-
   onChange() {
     this.setState(Store.getBillingAddress());
   },

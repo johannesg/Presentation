@@ -7,15 +7,6 @@ export var EditAddress = React.createClass({
     return this.props.address;
   },
 
-  componentWillMount() {
-  },
-
-  componentWillUnmount() {
-  },
-
-  componentWillReceiveProps(newProps) {
-  },
-
   ok() {
     this.props.onSetAddress(this.state);
 

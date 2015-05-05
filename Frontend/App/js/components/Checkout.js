@@ -1,4 +1,5 @@
 import React from 'react'
+import { Navigation } from 'react-router'
 import $ from 'jquery'
 import { Row, Col, Button } from 'react-bootstrap'
 import ShoppingCartActions from '../actions/ShoppingCartActions'
@@ -14,12 +15,14 @@ require('../stores/InventoryStore');
 
 var Checkout = React.createClass({
   //mixin: [PureRenderMixin],
+  mixins: [ Navigation ],
 
   onConfirmOrder() {
     let orderId = uuid.v4();
 
     console.log(`Order id: ${orderId}`);
     Actions.confirmOrder(orderId);
+    this.transitionTo('confirm');
   },
 
   render() {

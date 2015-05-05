@@ -18,9 +18,6 @@ var ArticleList = React.createClass({
     });
   },
 
-  componentWillReceiveProps(newProps) {
-  },
-
   addToCart(item, event) 
   {
     event.preventDefault();

@@ -22,9 +22,6 @@ var ShoppingCartList = React.createClass({
     this.setState(Store.getCart());
   },
 
-  componentWillReceiveProps(newProps) {
-  },
-
   render() {
     if (!this.state.items.length)
       return <div><h3>Men, du har ju inte köpt något...</h3></div>

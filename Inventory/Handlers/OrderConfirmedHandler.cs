@@ -14,7 +14,7 @@ namespace Inventory.Handlers
 
     public void Handle(OrderConfirmed message)
     {
-      Logger.InfoFormat("Order {0}: A minion is out in the field looking for items...", message.OrderId);
+      Logger.InfoFormat("Order {0}: In the warehouse looking for items...", message.OrderId);
       Thread.Sleep(5000);
       Logger.InfoFormat("Order {0}: All items collected.", message.OrderId);
 

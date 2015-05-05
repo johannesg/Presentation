@@ -3,6 +3,8 @@ import Store from '../stores/ShoppingCartStore'
 import _ from 'lodash'
 import { Link } from 'react-router'
 
+import BillingStore from '../stores/BillingStore'
+
 var ShoppingCartWidget = React.createClass({
   //mixin: [PureRenderMixin],
   getInitialState() {
@@ -26,7 +28,7 @@ var ShoppingCartWidget = React.createClass({
       this.state.items, 
       (s, i) => ({ 
         count: s.count + i.count,
-        amount: s.amount + i.count * i.article.price
+        amount: s.amount + i.count * BillingStore.getPrice(i.id)
       }),
       { count: 0, amount: 0});
 

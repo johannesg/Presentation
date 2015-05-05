@@ -18,11 +18,11 @@ function confirmOrder(payload) {
 }
 
 function addToCart(payload) {
-  let item = _.find(items, { articleId: payload.item.id });
+  let item = _.find(items, { articleId: payload.id });
   if (item)
     item.count++;
   else
-    items.push({ articleId: payload.item.id, count: 1 });
+    items.push({ articleId: payload.id, count: 1 });
 
   store.emitChange();
 }

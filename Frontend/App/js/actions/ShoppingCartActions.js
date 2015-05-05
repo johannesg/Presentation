@@ -1,10 +1,10 @@
 import AppDispatcher from '../AppDispatcher'
 
 export default {
-  addToCart(item) {
+  addToCart(id) {
     AppDispatcher.dispatch({
       actionType: 'shoppingcart.add',
-      item: item
+      id: id
     });
   }
 }

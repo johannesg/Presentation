@@ -2,7 +2,10 @@ import React from 'react'
 import $ from 'jquery'
 import _ from 'lodash'
 import Actions from '../actions/ShoppingCartActions'
+
 import Store from '../stores/ShoppingCartStore'
+import ArticleStore from '../stores/ArticleStore'
+import BillingStore from '../stores/BillingStore'
 
 var ShoppingCartList = React.createClass({
   //mixin: [PureRenderMixin],
@@ -26,25 +29,29 @@ var ShoppingCartList = React.createClass({
     if (!this.state.items.length)
       return <div><h3>Men, du har ju inte köpt något...</h3></div>
 
-    let items = this.state.items.map(i => <tr key={i.id} >
-      <td className='article-image'>
-        <img src={i.article.imageUrl}></img>
+    let total = 0;
+    let items = this.state.items.map(i => {
+      let article = ArticleStore.getArticle(i.id);
+      let price = BillingStore.getPrice(i.id);
+      total += price * i.count;
+      return <tr key={i.id} >
+        <td className='article-image'>
+        <img src={article.imageUrl}></img>
       </td>
       <td className='vert-align'>
-        {i.article.description}
+        {article.description}
       </td>
       <td className='vert-align'>
-        {i.article.price} kr
+        {price} kr
       </td>
       <td className='vert-align'>
         {i.count} st
       </td>
       <td className='vert-align'>
-        {i.article.price * i.count} kr
+        {price} kr
       </td>
-    </tr>);
-
-    let total = _.reduce(this.state.items, (total, i) => total + i.article.price * i.count, 0);
+    </tr>
+    });
 
     return <table className='table table-striped'>
       <thead>

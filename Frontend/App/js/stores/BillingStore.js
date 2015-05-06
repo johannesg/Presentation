@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher'
 import StoreFactory from './StoreFactory'
 import _ from 'lodash'
-import { getAjax, postAjax } from './Ajax'
+import { getJson, postJson } from './Ajax'
 import UserStore from './UserStore'
 
 let billingAddress = {};
@@ -19,7 +19,7 @@ let store = StoreFactory.Create({
   }
 });
 
-getAjax('/api/billing/prices')
+getJson('/api/billing/prices')
   .then(result => {
     prices = result;
     store.emitChange();
@@ -31,7 +31,7 @@ function updateBillingAddress(payload) {
 }
 
 function confirmOrder(payload) {
-  postAjax('/api/billing/confirmorder', {
+  postJson('/api/billing/confirmorder', {
     customerId: UserStore.getUser().customerId,
     orderId: payload.orderId,
     billingAddress : billingAddress

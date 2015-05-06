@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-export function getAjax(url, data)
+export function getJson(url, data)
 {
   return new Promise((resolve, reject) => {
     console.log('GET ' + url);
@@ -16,7 +16,7 @@ export function getAjax(url, data)
   });
 }
 
-export function postAjax(url, data)
+export function postJson(url, data)
 {
   return new Promise((resolve,reject) => {
     console.log('POST ' + url);

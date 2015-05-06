@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { Row, Col } from 'react-bootstrap'
 import ShoppingCartActions from '../actions/ShoppingCartActions'
 import ShoppingCartWidget from './ShoppingCartWidget'
-import { getAjax } from '../stores/Ajax'
+import { getJson } from '../stores/Ajax'
 
 import ArticleStore from '../stores/ArticleStore'
 import BillingStore from '../stores/BillingStore'

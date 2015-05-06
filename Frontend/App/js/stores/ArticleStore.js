@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher'
 import StoreFactory from './StoreFactory'
 import _ from 'lodash'
-import { getAjax, postAjax } from './Ajax'
+import { getJson, postJson } from './Ajax'
 import UserStore from './UserStore'
 
 let articles = [];
@@ -15,7 +15,7 @@ let store = StoreFactory.Create({
   }
 });
 
-getAjax('/api/articles')
+getJson('/api/articles')
   .then(result => {
     articles = result;
     store.emitChange();

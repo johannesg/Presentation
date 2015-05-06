@@ -1,14 +1,14 @@
 import AppDispatcher from '../AppDispatcher'
 import StoreFactory from './StoreFactory'
 import _ from 'lodash'
-import { getAjax, postAjax } from './Ajax'
+import { getJson, postJson } from './Ajax'
 import UserStore from './UserStore'
 
 let store = StoreFactory.Create({
 });
 
 function confirmOrder(payload) {
-  postAjax('/api/ordering/confirmorder', {
+  postJson('/api/ordering/confirmorder', {
     customerId: UserStore.getUser().customerId,
     orderId: payload.orderId
   });

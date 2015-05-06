@@ -2,7 +2,7 @@ import AppDispatcher from '../AppDispatcher'
 import StoreFactory from './StoreFactory'
 import BillingStore from './BillingStore'
 import _ from 'lodash'
-import { getAjax, postAjax } from './Ajax'
+import { getJson, postJson } from './Ajax'
 import UserStore from './UserStore'
 
 let deliveryAddress = {};
@@ -23,7 +23,7 @@ function useBillingAddress(payload) {
 }
 
 function confirmOrder(payload) {
-  postAjax('/api/shipping/confirmorder', {
+  postJson('/api/shipping/confirmorder', {
     customerId: UserStore.getUser().customerId,
     orderId: payload.orderId,
     deliveryAddress: deliveryAddress
